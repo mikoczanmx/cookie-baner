@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cookie Banner</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="cookie-banner">
+      <div class="cookie-content">
+        <strong>Your cookie preferences</strong>
+        <a href="javascript:void(0)">Continue without agree (only necessery)</a>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illo
+          quibusdam doloremque odit explicabo, voluptate consequatur totam! Quo,
+          vitae mollitia excepturi cumque quos fugit quae nulla aut beatae
+          aliquid doloribus totam ratione atque! Et quidem odio enim eligendi,
+          praesentium tenetur.
+        </p>
+      </div>
+      <div class="cookie-buttons">
+        <button class="primary">Accept</button>
+        <button class="secondary">Configure</button>
+      </div>
+    </div>
+    <script>
+      let button = document.querySelector("button");
+      let banner = document.querySelector(".cookie-banner");
+
+      button.addEventListener("click", hideBanner);
+
+      function hideBanner() {
+        banner.classList.add("hidden");
+        localStorage.setItem("cookieAccepted", 1);
+      }
+
+      if (localStorage.getItem("cookieAccepted") == 1) {
+        banner.classList.add("hidden");
+      }
+    </script>
+  </body>
+</html>
